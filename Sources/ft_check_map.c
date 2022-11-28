@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:05:18 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/09 13:30:50 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:53:26 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static int	ft_check_borders(char **map);
 int	ft_check_map(char **map)
 {
 	if (ft_check_dim(map))
-		return (-1);
+		ft_exit(1);
 	if (ft_check_char(map))
-		return (-2);
+		ft_exit(1);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:00:28 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/10 13:32:27 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:59:21 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ char	**ft_update_map(char **map, char *temp, size_t size)
 
 	j = 0;
 	new = (char **) malloc(sizeof(char *) * (size + 1));
+	if (!new)
+		ft_exit(2);
 	while (j < size)
 	{
 		new[j] = ft_strdup(map[j]);

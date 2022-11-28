@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:01:51 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/10 15:34:23 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:58:45 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ Decorations[] :
 1 floor under);
 
 2. ('F') Flag (put over a wall, cant have any hanging decoration in a wall near,
-1 floor under);
+1 floor under); DONE
 
 3. ('K') Prisoner (put over a wall, cant have any hanging decoration in a wall
-near, 1 floor under);
+near, 1 floor under); DONE
 
-4. ('M') Table (Replaces 1 wall );
+4. ('M') Table (Replaces 1 wall ); DONE
 
 5. ('Y') Chest;
 
-6. ('B') Barrel;
+6. ('B') Barrel; DONE
 
-7. ('S') Bookshelf; 
+7. ('S') Bookshelf; DONE
 
 8. ('T') Big_table (Replaces 2 walls has 2 floor under )
 */
@@ -52,7 +52,7 @@ char	**ft_build_deco(char **map)
 		while (deco[j][i + 1] != '\n' && deco[j][i])
 		{
 			if (deco[j][i] == '1')
-				ft_decorate_map(deco, j, i, arc4random() % 8);
+				ft_decorate_map(deco, j, i, arc4random() % 9);
 			i++;
 		}
 		j++;
@@ -63,7 +63,7 @@ char	**ft_build_deco(char **map)
 static void	ft_decorate_map(char **deco, int j, int i, int random)
 {
 	if (deco[j + 1][i] != '1' && deco[j - 1][i] != '1'
-		&& deco[j][i - 1] != '1' && deco[j][i + 1] != '1')
+	&& ft_strchr_mod("1SBYMKLF", deco[j][i - 1]) == -1 && deco[j][i + 1] != '1')
 		deco[j][i] = 'B';
 	if (deco[j + 1][i] != '1' && deco[j][i] != 'B')
 	{
@@ -81,10 +81,10 @@ static void	ft_decorate_map(char **deco, int j, int i, int random)
 			deco[j][i] = 'Y';
 		else if (deco[j + 1][i] != '1' && deco[j - 1][i] == '1'
 			&& deco[j][i - 1] != '1' && deco[j - 1][i + 1] == '1' &&
-			deco[j + 1][i + 1] != '1' && random > 4)
+			deco[j + 1][i + 1] != '1' && deco[j][i + 1] == '1' && random == 5)
 		{
 			deco[j][i] = 'T';
-			deco[j][i + 1] = 'T';
+			deco[j][i + 1] = 't';
 		}
 	}
 }

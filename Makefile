@@ -6,7 +6,7 @@
 #    By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:34:57 by marias-e          #+#    #+#              #
-#    Updated: 2022/11/04 12:36:38 by marias-e         ###   ########.fr        #
+#    Updated: 2022/11/24 12:37:15 by marias-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ OBJS 	=	$(addprefix $(O_DIR)/, $(SRCS:.c=.o))
 
 O_DIR	=	Objs
 
-CC	=	gcc -Wall -Wextra -Werror
+CC	=	gcc -Wall -Wextra -Werror -g
 
-NAME 	=	a.out
+NAME 	=	so_long
 
 L_DIR	=	Libft
 
@@ -43,6 +43,6 @@ fclean:		clean
 re:		fclean all
 
 run:	all
-		./a.out "mapa.ber"
+		./so_long "mapa.ber"
 
 .PHONY:	all clean fclean re run

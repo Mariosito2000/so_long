@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:57:05 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/11 13:33:42 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:38:39 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ Auxiliary function for ft_save_sprites().
 
 void	ft_door_sprites(t_sprites *sprites, void *mlx, int i)
 {
-	(*sprites).door = malloc(sizeof(void *) * 15);
+	(*sprites).door = malloc(sizeof(void *) * 16);
+	if (!(*sprites).door)
+		ft_exit(2);
 	(*sprites).door[0] = mlx_xpm_file_to_image(mlx, \
 	"Sprites/Door/door_anim_opening_f0.xpm", &i, &i);
 	(*sprites).door[1] = mlx_xpm_file_to_image(mlx, \
@@ -41,8 +43,6 @@ void	ft_door_sprites(t_sprites *sprites, void *mlx, int i)
 	"Sprites/Door/door_anim_opening_f9.xpm", &i, &i);
 	(*sprites).door[10] = mlx_xpm_file_to_image(mlx, \
 	"Sprites/Door/door_anim_opening_f10.xpm", &i, &i);
-	(*sprites).door[11] = mlx_xpm_file_to_image(mlx, \
-	"Sprites/Door/door_anim_opening_f11.xpm", &i, &i);
 }
 
 void	ft_extra_sprites(t_sprites *sprites, void *mlx, int i)
@@ -53,8 +53,14 @@ void	ft_extra_sprites(t_sprites *sprites, void *mlx, int i)
 	"Sprites/Door/door_anim_opening_f13.xpm", &i, &i);
 	(*sprites).door[14] = mlx_xpm_file_to_image(mlx, \
 	"Sprites/Door/door_fullyopen.xpm", &i, &i);
+	(*sprites).door[15] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Door/stair.xpm", &i, &i);
 	(*sprites).deco[12] = mlx_xpm_file_to_image(mlx, \
 	"Sprites/Deco/table_2.xpm", &i, &i);
+	(*sprites).deco[13] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Deco/bookshelf.xpm", &i, &i);
+	(*sprites).deco[14] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Wall/wall_2.xpm", &i, &i);
 	(*sprites).floor[12] = mlx_xpm_file_to_image(mlx, \
 	"Sprites/Floor/floor_12.xpm", &i, &i);
 	(*sprites).floor[13] = mlx_xpm_file_to_image(mlx, \
@@ -69,7 +75,9 @@ void	ft_extra_sprites(t_sprites *sprites, void *mlx, int i)
 
 void	ft_player_sprites(t_sprites *sprites, void *mlx, int i)
 {
-	(*sprites).player = malloc(sizeof(void *) * 12);
+	(*sprites).player = malloc(sizeof(void *) * 24);
+	if (!(*sprites).player)
+		ft_exit(2);
 	(*sprites).player[0] = mlx_xpm_file_to_image(mlx, \
 	"Sprites/Knight/knight_idle_anim_f0.xpm", &i, &i);
 	(*sprites).player[1] = mlx_xpm_file_to_image(mlx, \
@@ -92,13 +100,41 @@ void	ft_player_sprites(t_sprites *sprites, void *mlx, int i)
 	"Sprites/Knight/knight_run_anim_f3.xpm", &i, &i);
 	(*sprites).player[10] = mlx_xpm_file_to_image(mlx, \
 	"Sprites/Knight/knight_run_anim_f4.xpm", &i, &i);
-	(*sprites).player[11] = mlx_xpm_file_to_image(mlx, \
-	"Sprites/Knight/knight_run_anim_f5.xpm", &i, &i);
+}
+
+void	ft_player_rev_sprites(t_sprites *sprites, void *mlx, int i)
+{
+	(*sprites).player[12] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_idle_anim_f0.xpm", &i, &i);
+	(*sprites).player[13] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_idle_anim_f1.xpm", &i, &i);
+	(*sprites).player[14] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_idle_anim_f2.xpm", &i, &i);
+	(*sprites).player[15] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_idle_anim_f3.xpm", &i, &i);
+	(*sprites).player[16] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_idle_anim_f4.xpm", &i, &i);
+	(*sprites).player[17] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_idle_anim_f5.xpm", &i, &i);
+	(*sprites).player[18] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_run_anim_f0.xpm", &i, &i);
+	(*sprites).player[19] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_run_anim_f1.xpm", &i, &i);
+	(*sprites).player[20] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_run_anim_f2.xpm", &i, &i);
+	(*sprites).player[21] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_run_anim_f3.xpm", &i, &i);
+	(*sprites).player[22] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_run_anim_f4.xpm", &i, &i);
+	(*sprites).player[23] = mlx_xpm_file_to_image(mlx, \
+	"Sprites/Knight/knight_rev_run_anim_f5.xpm", &i, &i);
 }
 
 void	ft_deco_sprites(t_sprites *sprites, void *mlx, int i)
 {
-	(*sprites).deco = malloc(sizeof(void *) * 13);
+	(*sprites).deco = malloc(sizeof(void *) * 15);
+	if (!(*sprites).deco)
+		ft_exit(2);
 	(*sprites).deco[0] = mlx_xpm_file_to_image(mlx, \
 	"Sprites/Deco/torch_anim_f0.xpm", &i, &i);
 	(*sprites).deco[1] = mlx_xpm_file_to_image(mlx, \
@@ -121,6 +157,4 @@ void	ft_deco_sprites(t_sprites *sprites, void *mlx, int i)
 	"Sprites/Deco/chest.xpm", &i, &i);
 	(*sprites).deco[10] = mlx_xpm_file_to_image(mlx, \
 	"Sprites/Deco/barrel.xpm", &i, &i);
-	(*sprites).deco[11] = mlx_xpm_file_to_image(mlx, \
-	"Sprites/Deco/table.xpm", &i, &i);
 }

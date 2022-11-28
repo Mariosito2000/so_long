@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:48:02 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/09 13:30:59 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:56:44 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,30 @@ Checks that all the collectable items and the exit are accesible recursively.
 
 #include "soulong.h"
 
-static int		*ft_locate_obj(char obj, char **map);
+int				*ft_locate_obj(char obj, char **map);
 
-static size_t	ft_count_obj(char **map);
+int				ft_count_obj(char **map);
 
-static void		ft_recursive_path(int j, int i, char **map, size_t *objs);
+static void		ft_recursive_path(int j, int i, char **map, int *objs);
 
-static void		ft_aux_recursive_path(int j, int i, char **map, size_t *objs);
+static void		ft_aux_recursive_path(int j, int i, char **map, int *objs);
 
 int	ft_check_path(char **map)
 {
 	char	**copy;
 	int		*coords;
-	size_t	objs;
+	int		objs;
 
 	copy = ft_copy_map(map);
 	objs = ft_count_obj(map);
 	coords = ft_locate_obj('P', map);
 	ft_recursive_path(coords[0], coords[1], copy, &objs);
-	return (objs);
+	if (objs)
+		ft_exit(1);
+	return (0);
 }
 
-static void	ft_recursive_path(int j, int i, char **map, size_t *objs)
+static void	ft_recursive_path(int j, int i, char **map, int *objs)
 {
 	if (!(*objs))
 		return ;
@@ -58,7 +60,7 @@ static void	ft_recursive_path(int j, int i, char **map, size_t *objs)
 	ft_aux_recursive_path(j, i, map, objs);
 }
 
-static void	ft_aux_recursive_path(int j, int i, char **map, size_t *objs)
+static void	ft_aux_recursive_path(int j, int i, char **map, int *objs)
 {
 	if (map[j][i - 1] != '1' && map[j][i - 1] != '+')
 	{
@@ -76,11 +78,11 @@ static void	ft_aux_recursive_path(int j, int i, char **map, size_t *objs)
 	}
 }
 
-static size_t	ft_count_obj(char **map)
+int	ft_count_obj(char **map)
 {
-	size_t	count;
-	size_t	i;
-	size_t	j;
+	int	count;
+	int	i;
+	int	j;
 
 	count = 0;
 	j = 0;
@@ -98,14 +100,16 @@ static size_t	ft_count_obj(char **map)
 	return (count);
 }
 
-static int	*ft_locate_obj(char obj, char **map)
+int	*ft_locate_obj(char obj, char **map)
 {
 	int		*coords;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 
 	j = 0;
 	coords = malloc(sizeof(int) * 2);
+	if (!coords)
+		ft_exit(2);
 	while (map[j])
 	{
 		i = 0;
