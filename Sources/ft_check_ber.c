@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:30:11 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/24 16:45:25 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:04:56 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,17 @@ void	ft_check_ber(char *str)
 	if (str[len - 1] != 'r' || str[len - 2] != 'e' || \
 		str[len - 3] != 'b' || str[len - 4] != '.')
 		ft_exit(4);
+}
+
+void	ft_free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i] != 0)
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }

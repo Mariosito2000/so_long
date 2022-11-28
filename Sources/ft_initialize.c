@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:54:20 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/24 12:51:21 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:20:26 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_initialize_player(t_player *player, char **map)
 	player->door = 0;
 	player->frame = 0;
 	player->state = 0;
+	free(coords);
 	coords = ft_locate_obj('E', map);
 	player->door_y = coords[0];
 	player->door_x = coords[1];

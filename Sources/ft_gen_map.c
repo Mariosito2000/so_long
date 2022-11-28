@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:00:28 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/24 15:59:21 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:08:34 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@ Generates a 2D array from the text file the program receives.
 */
 
 #include "soulong.h"
-
-char	**ft_update_map(char **map, char *temp, size_t size);
 
 char	**ft_gen_map(int fd)
 {
@@ -38,7 +36,6 @@ char	**ft_gen_map(int fd)
 	}
 	free(temp);
 	map = ft_update_map(map, "", i);
-	map[i] = 0;
 	return (map);
 }
 
@@ -51,14 +48,22 @@ char	**ft_update_map(char **map, char *temp, size_t size)
 	new = (char **) malloc(sizeof(char *) * (size + 1));
 	if (!new)
 		ft_exit(2);
-	while (j < size)
-	{
-		new[j] = ft_strdup(map[j]);
-		free(map[j]);
-		j++;
-	}
 	if (map)
+	{
+		while (j < size)
+		{
+			new[j] = ft_strdup(map[j]);
+			if (map[j])
+				free(map[j]);
+			j++;
+		}
 		free(map);
-	new[j] = ft_strdup(temp);
+	}
+	if (!ft_strlen(temp))
+	{
+		new[j] = 0;
+	}
+	else
+		new[j] = ft_strdup(temp);
 	return (new);
 }

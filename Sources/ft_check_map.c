@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:05:18 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/24 16:53:26 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 11:39:08 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ static int	ft_check_dim(char **map)
 
 static int	ft_check_char(char **map)
 {
-	int		j;
-	int		i;
-	int		control[3];
+	int				j;
+	int				i;
+	static int		control[3];
 
 	j = 0;
 	while (map[j])

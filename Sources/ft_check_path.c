@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:48:02 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/24 16:56:44 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:19:29 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	ft_check_path(char **map)
 	objs = ft_count_obj(map);
 	coords = ft_locate_obj('P', map);
 	ft_recursive_path(coords[0], coords[1], copy, &objs);
+	ft_free_map(copy);
+	free(coords);
 	if (objs)
 		ft_exit(1);
 	return (0);
@@ -125,5 +127,6 @@ int	*ft_locate_obj(char obj, char **map)
 		}
 		j++;
 	}
+	free(coords);
 	return (0);
 }

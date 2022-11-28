@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:10:08 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/24 16:44:41 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:27:03 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,22 @@ int	ft_exit(int reason)
 		exit(0);
 	else if (reason == 1)
 	{
-		printf("\nError:\nMap error\n");
+		printf("\nError\nMap error\n\n");
 		exit(0);
 	}
 	else if (reason == 2)
 	{
-		printf("\nError:\nMemory allocation failed\n\n");
+		printf("\nError\nMemory allocation failed\n\n");
 		exit(0);
 	}
 	else if (reason == 3)
 	{
-		printf("\nError:\nInvalid number of arguments\n\n");
+		printf("\nError\nInvalid number of arguments\n\n");
 		exit(0);
 	}
 	else if (reason == 4)
 	{
-		printf("\nError:\nInvalid type of file\n\n");
+		printf("\nError\nInvalid type of file\n\n");
 		exit(0);
 	}
 	exit(0);

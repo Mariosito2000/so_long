@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:08:28 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/24 16:37:56 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:59:22 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ Map generator
 char		**ft_gen_map(int fd);
 char		**ft_copy_map(char **map);
 char		**ft_update_map(char **map, char *temp, size_t size);
+void		ft_free_map(char **map);
 /*
 Map checkers
 */

@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:01:51 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/24 15:58:45 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:10:10 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,5 @@ char	**ft_copy_map(char **map)
 		i++;
 	}
 	deco = ft_update_map(deco, "", i);
-	deco[i] = 0;
 	return (deco);
 }
