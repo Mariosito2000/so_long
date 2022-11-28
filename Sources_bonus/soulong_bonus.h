@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   soulong.h                                          :+:      :+:    :+:   */
+/*   soulong_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:08:28 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 16:07:48 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:22:31 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOULONG_H
-# define SOULONG_H
+#ifndef SOULONG_BONUS_H
+# define SOULONG_BONUS_H
 
 # include <math.h>
 # include <mlx.h>
@@ -35,6 +35,7 @@ typedef struct s_torch {
 
 typedef struct s_sprites {
 	t_list	*torch;
+	t_list	*enemies;
 	char	**base_map;
 	char	**floor_map;
 	char	**deco_map;
@@ -45,6 +46,7 @@ typedef struct s_sprites {
 	void	**deco;
 	void	**collect;
 	void	**border;
+	void	**enemy;
 }				t_sprites;
 
 typedef struct s_mlx {
@@ -105,6 +107,7 @@ Image generators (Sprites)
 void		ft_save_sprites(t_sprites *sprites, void *mlx);
 void		ft_door_sprites(t_sprites *sprites, void *mlx, int i);
 void		ft_extra_sprites(t_sprites *sprites, void *mlx, int i);
+void		ft_enemy_sprites(t_sprites *sprites, void *mlx, int i);
 void		ft_extra_sprites2(t_sprites *sprites, void *mlx, int i);
 void		ft_player_sprites(t_sprites *sprites, void *mlx, int i);
 void		ft_player_rev_sprites(t_sprites *sprites, void *mlx, int i);
