@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:08:28 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 16:22:31 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:34:06 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,19 @@
 # include "../Libft/get_next_line/get_next_line.h"
 # include "../Libft/ft_printf/ft_printf.h"
 
+typedef struct s_enemies {
+	int			y;
+	int			x;
+	int			wall;
+	int			frame;
+	int			type;
+}				t_enemies;
+
 typedef struct s_torch {
-	int				y;
-	int				x;
-	int				wall;
-	int				frame;
+	int			y;
+	int			x;
+	int			wall;
+	int			frame;
 }				t_torch;
 
 typedef struct s_sprites {

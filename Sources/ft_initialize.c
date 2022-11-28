@@ -6,11 +6,28 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:54:20 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 13:20:26 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:08:13 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "soulong.h"
+
+void	ft_fire_torch(t_list **torch, int j, int i)
+{
+	t_torch	*new;
+
+	new = malloc(sizeof(t_torch));
+	if (!new)
+		ft_exit(2);
+	new->x = i;
+	new->y = j;
+	new->frame = arc4random() % 6;
+	new->wall = arc4random() % 6;
+	if (!*torch)
+		*torch = ft_lstnew(new);
+	else
+		ft_lstadd_back(torch, ft_lstnew(new));
+}
 
 void	ft_initialize_player(t_player *player, char **map)
 {
@@ -37,7 +54,6 @@ void	ft_initialize_torch(char **map, t_list **torch)
 {
 	int		j;
 	int		i;
-	t_torch *new;
 
 	j = 0;
 	while (map[j])
@@ -47,21 +63,10 @@ void	ft_initialize_torch(char **map, t_list **torch)
 		{
 			if (map[j][i] == 'L')
 			{
-				new = malloc(sizeof(t_torch));
-				if (!new)
-					ft_exit(2);
-				new->x = i;
-				new->y = j;
-				new->frame = arc4random() % 6;
-				new->wall = arc4random() % 6;
-				if (!*torch)
-					*torch = ft_lstnew(new);
-				else
-					ft_lstadd_back(torch, ft_lstnew(new));
+				ft_fire_torch(torch, j, i);
 			}
 			i++;
 		}
 		j++;
 	}
 }
-				
