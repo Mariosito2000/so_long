@@ -6,7 +6,7 @@
 #    By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 10:17:43 by marias-e          #+#    #+#              #
-#    Updated: 2022/11/04 12:36:57 by marias-e         ###   ########.fr        #
+#    Updated: 2022/11/29 10:39:34 by marias-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ $(O_DIR)/%.o: %.c
 
 ${NAME}:	${OBJS}
 		ar rc ${NAME} ${OBJS}
-	
+
 all:		${NAME}
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:05:18 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 16:06:48 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:31:17 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	ft_check_char(char **map)
 		i = 0;
 		while (map[j][i] != '\n' && map[j][i])
 		{
-			if (ft_strchr_mod("10CEP", map[j][i]) == -1)
+			if (ft_strchr_mod("10CEPX", map[j][i]) == -1)
 				return (-1);
 			if (map[j][i] == 'P')
 				control[0]++;

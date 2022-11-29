@@ -6,13 +6,33 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:12:03 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 16:06:48 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:13:59 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "soulong_bonus.h"
 
-void	ft_render_torch(t_game *game)
+void	ft_render_enemies(t_game *game)
+{
+	t_enemies	*enemies;
+	t_list		*start;
+
+	start = game->sprites.enemies;
+	while (start)
+	{
+		enemies = start->content;
+		enemies->frame += 1;
+		mlx_put_image_to_window(game->mlx.mlx, game->mlx.mlx_win, \
+		game->sprites.floor[game->sprites.floor_map[enemies->y][enemies->x]], \
+		((enemies->x + 1) * 32), ((enemies->y + 2) * 32));
+		mlx_put_image_to_window(game->mlx.mlx, game->mlx.mlx_win, \
+		game->sprites.enemy[(enemies->frame % 6) + (6 * enemies->type)], \
+		((enemies->x + 1) * 32), ((enemies->y + 2) * 32));
+		start = start->next;
+	}
+}
+
+void	ft_render(t_game *game)
 {
 	t_torch	*torch;
 	t_list	*start;
@@ -30,6 +50,7 @@ void	ft_render_torch(t_game *game)
 			((torch->y + 2) * 32));
 		start = start->next;
 	}
+	ft_render_enemies(game);
 }
 
 void	ft_render_player(t_game *game)
@@ -69,13 +90,13 @@ int	ft_render_game(t_game *game)
 	if (frame % 400 == 0 && game->player.state)
 		ft_player_anim(game);
 	if (frame == 1200)
-		ft_render_torch(game);
+		ft_render(game);
 	if (frame == 1200 && game->player.state == 0)
 		ft_render_player(game);
 	frame = frame % 1200;
 	if (game->sprites.base_map[game->player.y][game->player.x] == 'C')
 		ft_loot(game);
-	if (game->sprites.base_map[game->player.y][game->player.x] == 'E'\
+	else if (game->sprites.base_map[game->player.y][game->player.x] == 'E'\
 		&& game->player.door == 16)
 	{
 		ft_printf("\n*** GANASTE MI NINIO ***\n\n");

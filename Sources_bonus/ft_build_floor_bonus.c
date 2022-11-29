@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:09:26 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 16:06:48 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:34:20 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	**ft_build_floor(char	**map)
 		i = 1;
 		while (floor[j][i + 1] != '\n' && floor[j][i])
 		{
-			if (ft_strchr_mod("0PECBYMTt", floor[j][i]) != -1)
+			if (ft_strchr_mod("0PEXCBYMTt", floor[j][i]) != -1)
 				floor[j][i] = (arc4random() % 17) + 'a';
 			i++;
 		}

@@ -6,11 +6,13 @@
 #    By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:34:57 by marias-e          #+#    #+#              #
-#    Updated: 2022/11/24 12:37:15 by marias-e         ###   ########.fr        #
+#    Updated: 2022/11/29 11:15:46 by marias-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	$(wildcard Sources/*.c)
+
+SRCS_BONUS = $(wildcard Sources_bonus/*.c)
 
 OBJS 	=	$(addprefix $(O_DIR)/, $(SRCS:.c=.o))
 
@@ -45,4 +47,4 @@ re:		fclean all
 run:	all
 		./so_long "mapa.ber"
 
-.PHONY:	all clean fclean re run
+.PHONY:	all clean fclean re run bonus

@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:08:28 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 16:34:06 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:29:14 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 typedef struct s_enemies {
 	int			y;
 	int			x;
-	int			wall;
 	int			frame;
 	int			type;
 }				t_enemies;
@@ -108,7 +107,7 @@ Initialize;
 void		ft_initialize_player(t_player *player, char	**map);
 int			ft_count_obj(char **map);
 int			*ft_locate_obj(char obj, char **map);
-void		ft_initialize_torch(char **map, t_list **torch);
+void		ft_initialize(char **map, t_list **torch, t_list **enemies);
 /*
 Image generators (Sprites)
 */
