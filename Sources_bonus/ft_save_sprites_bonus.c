@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:52:18 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 16:23:18 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:15:15 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_save_sprites(t_sprites *sprites, void *mlx)
 	ft_deco_sprites(sprites, mlx, i);
 	ft_door_sprites(sprites, mlx, i);
 	ft_border_sprites(sprites, mlx, i);
-	ft_enemy_sprites(sprites, mlx, i);
 	ft_extra_sprites(sprites, mlx, i);
 	ft_extra_sprites2(sprites, mlx, i);
 	sprites->deco_map = ft_build_deco(sprites->base_map);

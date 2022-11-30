@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:13:39 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 17:13:41 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:15:06 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int	main(int argc, char **argv)
 	ft_check_path(game.sprites.base_map);
 	ft_save_sprites(&game.sprites, &game.mlx);
 	ft_initialize_player(&game.player, game.sprites.base_map);
-	ft_initialize(game.sprites.deco_map, &game.sprites.torch, \
-		&game.sprites.enemies);
+	ft_initialize_torch(game.sprites.deco_map, &game.sprites.torch);
 	ft_create_window(game.sprites.base_map, &game.mlx);
 	ft_paint_base(game.sprites.deco_map, game.mlx, game.sprites);
 	ft_paint_deco(game.sprites.deco_map, game.mlx, game.sprites);

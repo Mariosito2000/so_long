@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:22:08 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 16:06:48 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/30 16:32:25 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,22 @@ void	ft_paint_key(t_game game)
 	mlx_put_image_to_window(game.mlx.mlx, game.mlx.mlx_win, \
 	game.sprites.collect[1], ((coords[1] + 1) * 32), ((coords[0] + 2) * 32));
 	free(coords);
+}
+
+void	ft_paint_black(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < 40)
+	{
+		x = 0;
+		while (x < 150)
+		{
+			mlx_pixel_put(game->mlx.mlx, game->mlx.mlx_win, x, y, 0x000000);
+			x++;
+		}
+		y++;
+	}
 }

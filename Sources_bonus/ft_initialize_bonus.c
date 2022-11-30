@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:54:20 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 17:28:58 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:15:42 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,6 @@ void	ft_fire_torch(t_list **torch, int j, int i)
 		*torch = ft_lstnew(new);
 	else
 		ft_lstadd_back(torch, ft_lstnew(new));
-}
-
-void	ft_set_enemies(t_list **enemies, int j, int i)
-{
-	t_enemies	*new;
-
-	new = malloc(sizeof(t_torch));
-	if (!new)
-		ft_exit(2);
-	new->x = i;
-	new->y = j;
-	new->frame = arc4random() % 6;
-	new->type = arc4random() % 2;
-	if (!*enemies)
-		*enemies = ft_lstnew(new);
-	else
-		ft_lstadd_back(enemies, ft_lstnew(new));
 }
 
 void	ft_initialize_player(t_player *player, char **map)
@@ -67,7 +50,7 @@ void	ft_initialize_player(t_player *player, char **map)
 	free(coords);
 }
 
-void	ft_initialize(char **map, t_list **torch, t_list **enemies)
+void	ft_initialize_torch(char **map, t_list **torch)
 {
 	int		j;
 	int		i;
@@ -79,9 +62,9 @@ void	ft_initialize(char **map, t_list **torch, t_list **enemies)
 		while (map[j][i] != '\n' && map[j][i])
 		{
 			if (map[j][i] == 'L')
+			{
 				ft_fire_torch(torch, j, i);
-			else if (map[j][i] == 'X')
-				ft_set_enemies(enemies, j, i);
+			}
 			i++;
 		}
 		j++;

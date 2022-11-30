@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:08:28 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 17:29:14 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:11:44 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,15 @@
 # include "../Libft/get_next_line/get_next_line.h"
 # include "../Libft/ft_printf/ft_printf.h"
 
-typedef struct s_enemies {
-	int			y;
-	int			x;
-	int			frame;
-	int			type;
-}				t_enemies;
-
 typedef struct s_torch {
-	int			y;
-	int			x;
-	int			wall;
-	int			frame;
+	int				y;
+	int				x;
+	int				wall;
+	int				frame;
 }				t_torch;
 
 typedef struct s_sprites {
 	t_list	*torch;
-	t_list	*enemies;
 	char	**base_map;
 	char	**floor_map;
 	char	**deco_map;
@@ -53,7 +45,6 @@ typedef struct s_sprites {
 	void	**deco;
 	void	**collect;
 	void	**border;
-	void	**enemy;
 }				t_sprites;
 
 typedef struct s_mlx {
@@ -107,14 +98,13 @@ Initialize;
 void		ft_initialize_player(t_player *player, char	**map);
 int			ft_count_obj(char **map);
 int			*ft_locate_obj(char obj, char **map);
-void		ft_initialize(char **map, t_list **torch, t_list **enemies);
+void		ft_initialize_torch(char **map, t_list **torch);
 /*
 Image generators (Sprites)
 */
 void		ft_save_sprites(t_sprites *sprites, void *mlx);
 void		ft_door_sprites(t_sprites *sprites, void *mlx, int i);
 void		ft_extra_sprites(t_sprites *sprites, void *mlx, int i);
-void		ft_enemy_sprites(t_sprites *sprites, void *mlx, int i);
 void		ft_extra_sprites2(t_sprites *sprites, void *mlx, int i);
 void		ft_player_sprites(t_sprites *sprites, void *mlx, int i);
 void		ft_player_rev_sprites(t_sprites *sprites, void *mlx, int i);
@@ -129,6 +119,7 @@ void		ft_paint_floor(int	*yx, t_mlx mlx, t_sprites sprites);
 void		ft_paint_borders(t_mlx mlx, t_sprites sprites);
 void		ft_paint_collectibles(char **map, t_game game);
 void		ft_paint_key(t_game game);
+void		ft_put_enemy(int *yx, t_mlx mlx);
 int			ft_render_game(t_game *game);
 /*
 Inputs
@@ -144,6 +135,7 @@ Game manager
 void		ft_loot(t_game *game);
 void		ft_open_door(t_game *game);
 void		ft_player_anim(t_game *game);
+void		ft_paint_black(t_game *game);
 /*
 Printing function (Illegal)
 */

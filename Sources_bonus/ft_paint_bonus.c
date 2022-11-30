@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:22:16 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/28 16:06:48 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:11:35 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ sprites.deco[(arc4random() % 2) + 6], ((yx[1] + 1) * 32), ((yx[0] + 2) * 32));
 					mlx_put_image_to_window(mlx.mlx, mlx.mlx_win, \
 	sprites.deco[8], ((yx[1] + 1) * 32), ((yx[0] + 2) * 32));
 			}
-			else if (ft_strchr_mod("0PCEMTBYt", map[yx[0]][yx[1]]) != -1)
+			else if (ft_strchr_mod("0PCXEMTBYt", map[yx[0]][yx[1]]) != -1)
 				ft_paint_floor(yx, mlx, sprites);
 			yx[1]++;
 		}
@@ -80,8 +80,10 @@ void	ft_paint_floor(int	*yx, t_mlx mlx, t_sprites sprites)
 	sprites.floor[floor], ((yx[1] + 1) * 32), ((yx[0] + 2) * 32));
 }
 
-void	ft_aux_paint_deco(char	**map, int	*yx, t_mlx mlx, t_sprites sprites)
+void	ft_aux_paint_deco(char	**map, int *yx, t_mlx mlx, t_sprites sprites)
 {
+	if (map[yx[0]][yx[1]] == 'X')
+		ft_put_enemy(yx, mlx);
 	if (map[yx[0]][yx[1]] == 'B')
 		mlx_put_image_to_window(mlx.mlx, mlx.mlx_win, \
 	sprites.deco[10], ((yx[1] + 1) * 32), ((yx[0] + 2) * 32));
