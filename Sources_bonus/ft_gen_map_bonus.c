@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:00:28 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/30 13:15:45 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:18:09 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	**ft_gen_map(int fd)
 	char	*temp;
 	char	*sfree;
 
+	if (fd == -1)
+		ft_exit(4);
 	map = 0;
 	i = 0;
 	temp = get_next_line(fd);
