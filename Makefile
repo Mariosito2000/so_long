@@ -6,7 +6,7 @@
 #    By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:34:57 by marias-e          #+#    #+#              #
-#    Updated: 2022/11/30 17:43:34 by marias-e         ###   ########.fr        #
+#    Updated: 2022/12/01 11:43:05 by marias-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ Sources/ft_paint_2.c \
 Sources/ft_player_anim.c \
 Sources/ft_render_map.c \
 Sources/ft_save_sprites.c \
-Sources/main.c \
+Sources/main.c
 
 SRCS_BONUS	=	Sources_bonus/ft_aux_save_sprites2_bonus.c \
 Sources_bonus/ft_aux_save_sprites_bonus.c \
@@ -44,7 +44,7 @@ Sources_bonus/ft_paint_bonus.c \
 Sources_bonus/ft_player_anim_bonus.c \
 Sources_bonus/ft_render_map_bonus.c \
 Sources_bonus/ft_save_sprites_bonus.c \
-Sources_bonus/main_bonus.c \
+Sources_bonus/main_bonus.c
 
 OBJS 	=	$(addprefix $(O_DIR)/, $(SRCS:.c=.o))
 

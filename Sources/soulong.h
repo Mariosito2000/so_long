@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:08:28 by marias-e          #+#    #+#             */
-/*   Updated: 2022/11/29 16:38:17 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:44:32 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/stat.h>
-# include "../Libft/miniLibft/libft.h"
-# include "../Libft/get_next_line/get_next_line.h"
-# include "../Libft/ft_printf/ft_printf.h"
+# include "../Libft/miniLibft_sl/libft.h"
+# include "../Libft/get_next_line_sl/get_next_line.h"
+# include "../Libft/ft_printf_sl/ft_printf.h"
 
 typedef struct s_torch {
 	int				y;
